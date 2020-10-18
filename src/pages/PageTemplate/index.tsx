@@ -1,8 +1,8 @@
 //conteudo
 
 import React from 'react';
-import Header from '../../Header';
-import Footer from '../../Footer';
+import Header from '../../components/Header/Container';
+import Footer from '../../components/Footer';
 
 const PageTemplate: React.FC = (props) =>{
     return(

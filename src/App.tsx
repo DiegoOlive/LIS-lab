@@ -1,9 +1,9 @@
 //semelhante ao main da aplicação
 import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import Editais from './components/pages/Editais';
-import Erro404 from './components/pages/Erro404';
-import Home from './components/pages/Home';
+import Editais from './pages/Editais';
+import Erro404 from './pages/Erro404';
+import Home from './pages/Home';
 
 function App() {
   return (
