@@ -1,5 +1,3 @@
-//conteudo
-
 import React from 'react';
 import Header from '../../components/Header/Container';
 import Footer from '../../components/Footer';
