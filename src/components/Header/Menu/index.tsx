@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {FiMenu} from 'react-icons/fi';
+import {RiCloseFill} from 'react-icons/ri';
 import MenuIcon from '../MenuIcon';
 import MenuList from '../MenuList';
+
+//?para dizer que é opcional
+interface MenusProps {
+    open?:boolean;    
+}
+
 
 // background-color: green;
 const MenuContainer = styled.div`
@@ -14,7 +21,7 @@ const MenuContainer = styled.div`
     & ${MenuIcon}{
         position:fixed;
         right:20px;
-        top: 10px;
+        top: 20px;
     }
   `
 // background-color: red;
@@ -25,8 +32,11 @@ const MenuContainer = styled.div`
     position: fixed;
     right: 0;
     top: 0;
+    transform: ${(props: MenusProps) => props.open ? 'translateX(0)' : 'translateX(100%)'};
+    transition: transform 0.3s;
 
     @media (min-width: 768px){
+        transform: none;
         background-color: transparent;
         display: flex;
         position: static;
@@ -35,15 +45,35 @@ const MenuContainer = styled.div`
         justify-content: space-between;
     }
   ` 
-
+//comentario em react {/* /*}
+/*
+const OpenMenu = () =>{
+    if(!open){
+        return(
+        <MenuIcon open={open} onClick ={() => setOpen(!open)}>
+            <FiMenu/> 
+        </MenuIcon>) 
+    } else{
+        return null;
+    }
+}
+*/
 export default function Menu(){
+    const [open, setOpen] = useState(false);
     return(
         <MenuContainer>
-            <MenuIcon>
+            {!open &&
+            <MenuIcon open={open} onClick={() => setOpen(!open)}>
                <FiMenu/> 
             </MenuIcon>
+            }
 
-            <Menus>
+            {open &&
+            <MenuIcon open={open} onClick={() => setOpen(!open)}>
+                <RiCloseFill/> 
+            </MenuIcon>
+            }
+            <Menus open={open}>
                 <MenuList>
                     <li>Início</li>
                     <li>Pesquisadores</li>
