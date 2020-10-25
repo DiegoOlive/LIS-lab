@@ -34,6 +34,7 @@ const MenuContainer = styled.div`
     top: 0;
     transform: ${(props: MenusProps) => props.open ? 'translateX(0)' : 'translateX(100%)'};
     transition: transform 0.3s;
+    font-family: 'Roboto', sans-serif;
 
     @media (min-width: 768px){
         transform: none;
