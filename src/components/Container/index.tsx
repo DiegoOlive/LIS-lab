@@ -5,7 +5,6 @@ import Page from '../Page';
 //tag do html main
 const PageContainer = styled.main`
     width: 90%;
-    background-color: tomato;
 
 `
 //acessar props dos filhos elementos dentro dessa tag
