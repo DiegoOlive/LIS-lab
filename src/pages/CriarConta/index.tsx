@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import PageTemplate from '../PageTemplate';
 import criarContaImg from '../../assets/images/CriarConta/criarConta.svg';
-import Input from '../../components/Input';
-import Select from '../../components/Select';
+import Input, {InputContainer} from '../../components/Input';
+import Select, {SelectContainer} from '../../components/Select';
 import TextArea from '../../components/TextArea';
-
+import SubmitButton from '../../components/SubmitButton';
 
 //toda pag possui um pag template
 //pagtemplate defini cabeçalho e rodape
@@ -18,6 +18,13 @@ const Form = styled.form`
     font-family: 'Roboto', sans-serif;
     margin: 50px auto;
     width: 90%;
+    min-width: 768px;
+    @media (min-width: 768px){
+        border: 1px solid var(--bordas);
+        padding: 50px;
+        border-radius: 0.8rem;
+        width: 70%;
+    }
 
 `
 
@@ -32,7 +39,9 @@ const Legend = styled.legend`
 `
 
 const NameContainer = styled.div`
-
+    @media (min-width: 768px){
+        display: flex;
+    }  
 `
 
 const Photo = styled.div`
@@ -41,17 +50,58 @@ const Photo = styled.div`
     background-color: var(--bordas);
     border-radius: 50%;
     margin-top: 20px;
+
+    @media (min-width: 768px){
+        flex-shrink: 0;
+        margin-right: 10px;
+    }
 `
 
 const Name = styled.div`
+    @media (min-width: 768px){
+        display: flex;
+        width: 100%;
+        align-items: center;
 
+        ${InputContainer}{
+            width: 100%;
+        }
+        ${InputContainer} + ${InputContainer}{
+            margin-left: 10px;
+            width: 100%;
+        }            
+    }
 `
 
 const Contato = styled.div`
+    @media (min-width: 768px){
+        display: flex;
+        width: 100%;
 
+        ${InputContainer}{
+            width: 100%;
+        }
+        ${InputContainer} +${InputContainer}{
+            width: 30%;
+            margin-left: 10px;
+        }
+    }
 `
 
 const Property = styled.div`
+    @media (min-width: 768px){
+        display: flex;
+        justify-content: space-between;  
+        width: 100%;  
+    }
+
+    ${SelectContainer}{
+        width: 100%; 
+    }
+
+    ${SelectContainer}+${SelectContainer}{
+        margin-left: 10px;
+    }
 
 `
 
@@ -152,7 +202,8 @@ export default function CriarConta (){
                         <Input name="publication_year" label="Ano" />
                     </TitleContainer>
                     <TextArea name="publication_reference" label="Referência ABNT (max. 300 caracteres)"/>
-                </FieldSet>        
+                </FieldSet>
+                <SubmitButton>Enviar</SubmitButton>        
             </Form>
         </PageTemplate>
     );

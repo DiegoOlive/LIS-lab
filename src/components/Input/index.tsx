@@ -6,7 +6,8 @@ import {ContainerStyles, InputStyles, LabelStyles} from '../inputStyles';
 //flex-direction: column;
 //margin: 10px 0;
 //agora é importado de inputStyles
-const InputContainer = styled.div`
+//const InputContainer = styled.div`
+export const InputContainer = styled.div`
     ${ContainerStyles}
 `
 
