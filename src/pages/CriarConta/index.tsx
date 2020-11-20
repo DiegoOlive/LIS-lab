@@ -4,6 +4,7 @@ import PageTemplate from '../PageTemplate';
 import criarContaImg from '../../assets/images/CriarConta/criarConta.svg';
 import Input from '../../components/Input';
 import Select from '../../components/Select';
+import TextArea from '../../components/TextArea';
 
 //toda pag possui um pag template
 //pagtemplate defini cabeçalho e rodape
@@ -96,8 +97,7 @@ export default function CriarConta (){
                             name="category"
                             label="Categoria (discente,docente)"
                             options={categoria}
-                        />
-                    </Property>
+                        />                   
                         <Select
                             name="occupation"
                             label="Função (membro, Líder)"
@@ -108,6 +108,8 @@ export default function CriarConta (){
                             label="Titulação (graduado, mestre)"
                             options={titulacao}
                         />
+                    </Property>
+                    <TextArea name="bio" label="Bio (max 300 caracteres)"/>
                 </FieldSet>            
             </Form>
         </PageTemplate>
